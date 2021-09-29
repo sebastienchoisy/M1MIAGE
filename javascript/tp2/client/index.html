@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="lib/vue.min.js"></script>
+    <script src="lib/lodash.min.js"></script>
+
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/vue-material/dist/vue-material.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/vue-material/dist/theme/default.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title>Gestionnaire restaurants VueJS</title>
+</head>
+
+<body>
+<div id="app">
+    <form @submit.prevent="ajouterRestaurant($event)">
+        <md-field>
+            <label> Nom </label>
+            <md-input type="text" required v-model="nom" name="nom"></md-input>
+        </md-field>
+        <md-field>
+            <label> Cuisine </label>
+            <md-input type="text" required v-model="cuisine" name="cuisine"></md-input>
+        </md-field>
+        <md-button type="submit" class="md-raised">Ajouter</md-button>
+    </form>
+
+    <h1>Nombre de restaurants : {{restaurantsNumber}}<br><br>
+        Nombre de restaurants dans la réponse : {{pageSize}}</h1>
+    <md-field>
+        <label>Rechercher</label>
+        <md-input type="text" v-model="restaurantNameQuery" class="search"></md-input>
+    </md-field>
+    <md-button class="md-raised" type="submit" v-on:click="getRestaurantsFromServer">Rechercher</md-button>
+    <md-button class="md-raised" v-on:click="resetQuery">Reset</md-button>
+    <md-table>
+        <md-table-row>
+            <md-table-head>Nom</md-table-head>
+            <md-table-head>Cuisine </md-table-head>
+        </md-table-row>
+        <tbody>
+            <md-table-row v-for="r,index in restaurants" v-bind:style="{backgroundColor:getColor(index)}"
+                v-bind:class="{bordureRouge:(index === 2)}">
+                <md-table-cell>{{r.nom}}</md-table-cell>
+                <md-table-cell> {{r.cuisine}}</md-table-cell>
+                <md-table-cell><button v-on:click="supprimerRestaurant(r.id)">Delete</button></md-table-cell>
+            </md-table-row>
+        </tbody>
+    </md-table>
+    <div class="queryselector">
+    <input type="range" min="5" max="100" v-model="pageSize" step="5" id="slider">
+    <md-button class="md-raised" :disabled="pageNumber===0" v-on:click="goPrevious">Précèdent</md-button>
+    <md-button class="md-raised" v-on:click="goNext">Suivant</md-button>
+    </div>
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/vue-material"></script>
+<script>
+    Vue.use(VueMaterial.default)
+</script>
+</body>
+
+</html>
