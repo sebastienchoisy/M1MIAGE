@@ -48,7 +48,8 @@ public class Exercice2 extends JDialog {
 	}
 
 	 public static void main(String[] args) {
-			
+			Exercice2 exercice = new Exercice2();
+			exercice.initInterface();
 		  }
 
 }
