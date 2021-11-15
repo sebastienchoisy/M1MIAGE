@@ -3,6 +3,7 @@ package Ex1;
 import java.util.ArrayList;
 import java.util.function.Consumer;
 
+
 public class ueList {
     ArrayList liste = new ArrayList<ue>();
 
@@ -23,7 +24,7 @@ public class ueList {
         }
 
         public String toString() {
-            return "Module: " + this.module+" | Année de création: " +this.anneeDeCreation+" | Diplôme: "+this.diplome+" | Enseignent: "+this.enseignant+" | Type de contrôle: "+this.controle+" | Rattrapage: "+this.rattrapage;
+            return "Module: " + this.module+" | Année de création: " +this.anneeDeCreation+" | Diplôme: "+this.diplome+" | Enseignant: "+this.enseignant+" | Type de contrôle: "+this.controle+" | Rattrapage: "+this.rattrapage;
         }
     }
 
