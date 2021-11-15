@@ -2,7 +2,11 @@
 /shelf/
 /workspace.xml
 # Datasource local storage ignored files
+<<<<<<< HEAD
 /../../../../:\M1MIAGE\JAVA\.idea/dataSources/
+=======
+/dataSources/
+>>>>>>> bde3b115c9f712554a64566c8198f5f26498cf34
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
