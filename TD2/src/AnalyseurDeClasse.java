@@ -26,6 +26,8 @@ public class AnalyseurDeClasse {
         afficheConstructeurs(cl);
         afficheMethodes(cl);
         getClassAnnotation2020(cl);
+        getInnerClassesAnnotation2020(cl);
+        DisplayMethodsCreatedIn2020(cl);
 
 
 
@@ -34,6 +36,15 @@ public class AnalyseurDeClasse {
 
 
     }
+    @miageBasics(nom = "Choisy", prenom = "Sebastien", annee = 2020, module = "java", seanceTD = 1)
+    public class Class2 {
+    }
+
+    @miageBasics(nom = "Choisy", prenom = "Sebastien", annee = 2019, module = "java", seanceTD = 1)
+    public class Class3 {
+    }
+
+
 
 
     /** Retourne la classe dont le nom est pass� en param�tre */
@@ -53,7 +64,7 @@ public class AnalyseurDeClasse {
         String modifier = Modifier.toString(cl.getModifiers());
 
 
-        // R�cup�ration de la superclasse si elle existe (null si cl est le type Object)
+        // Recuperation de la superclasse si elle existe (null si cl est le type Object)
         Class supercl = cl.getSuperclass();
         String superclass = "";
         if(supercl != null && supercl.getName() != "Object") {
@@ -154,7 +165,7 @@ public class AnalyseurDeClasse {
         }
     }
 
-    @miageBasics(nom = "Choisy", prenom = "Sebastien", annee = 2020, module = "java", seanceTD = 1)
+    @miageBasics(nom = "Choisy", prenom = "Sebastien", annee = 2019, module = "java", seanceTD = 1)
     @miageAdvanced(etatCompletudeImplem = draft.complet, etatTest = true, etatAutomatisation = true)
     public static void afficheConstructeurs(Class cl) {
         Constructor[] constructors = cl.getConstructors();
@@ -169,7 +180,7 @@ public class AnalyseurDeClasse {
     }
 
 
-    @miageBasics(nom = "Choisy", prenom = "Sebastien", annee = 2020, module = "java", seanceTD = 1)
+    @miageBasics(nom = "Choisy", prenom = "Sebastien", annee = 2019, module = "java", seanceTD = 1)
     @miageAdvanced(etatCompletudeImplem = draft.complet, etatTest = true, etatAutomatisation = true)
     public static void afficheMethodes(Class cl) throws NoSuchMethodException {
         Method[] methods = cl.getDeclaredMethods();
@@ -182,27 +193,43 @@ public class AnalyseurDeClasse {
         }
     }
 
-    public static ArrayList<miageBasics> getClassAnnotation2020(Class cl){
+    public static void getClassAnnotation2020(Class cl){
        miageBasics advancedAnnotations[] = (miageBasics[]) cl.getAnnotationsByType(miageBasics.class);
-        ArrayList<miageBasics> advancedAnnotations2020  = new ArrayList<>();
         for(int i = 0; i < advancedAnnotations.length; i++){
+            System.out.println("Annotation de la classe "+cl+" crée en 2020 :\n");
             if(advancedAnnotations[i].annee() == 2020){
-                advancedAnnotations2020.add(advancedAnnotations[i]);
+                System.out.println(advancedAnnotations[i]);
             }
         }
-        return advancedAnnotations2020;
+
     }
 
-    public static ArrayList<miageBasics> getInnerClassesAnnotation2020(Class cl) {
+    public static void DisplayMethodsCreatedIn2020(Class cl) {
+        Method[] methods = cl.getDeclaredMethods();
+        ArrayList<Method> methods2020 = new ArrayList<>();
+        for(int i = 0; i < methods.length; i++){
+            miageBasics[] methodAnnotations = methods[i].getAnnotationsByType(miageBasics.class);
+            for(int j = 0;j < methodAnnotations.length; j++){
+                if(methodAnnotations[j].annee() == 2020){
+                    methods2020.add(methods[i]);
+                }
+            }
+        }
+        if(methods2020.size()>0){
+            System.out.println("Voici les méthodes crées en 2020 : \n");
+            for(int h = 0; h < methods2020.size(); h++){
+                System.out.println(methods2020.get(h).getName() + "\n");
+            }
+        }
+    }
+
+    public static void getInnerClassesAnnotation2020(Class cl) {
         Class[] innerClasses = cl.getDeclaredClasses();
         ArrayList<miageBasics> advancedAnnotations2020  = new ArrayList<>();
 
         if(innerClasses.length != 0){
-            for(int i=0;i<innerClasses.length;i++){
-                ArrayList<miageBasics>
-                if( getClassAnnotation2020(innerClasses[i]).size() != 1)
-                    getClassAnnotation2020(innerClasses[i])
-                            .forEach((ez));
+            for(int i=0;i<innerClasses.length;i++) {
+                getClassAnnotation2020(innerClasses[i]);
             }
         }
 
