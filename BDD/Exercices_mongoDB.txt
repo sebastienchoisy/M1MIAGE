@@ -197,7 +197,7 @@ db.clients.aggregate([{ $match: { "_id": 2 } },{$lookup:{from: "vols",localField
 1.6.5 Afficher les clients qui habitent à une adresse 
 donnée (ville, rue, numero)
 
-db.clients.find({"adresse.ville":"Nice","adresse.rue":"Allée de la Chapelle Saint-Pierre",adresse.numero":12})
+db.clients.find({"adresse.ville":"Nice","adresse.rue":"Allée de la Chapelle Sanumber-Pierre",adresse.numero":12})
 
 
 1.6.6 Visulisez aussi le plan d'exécution de la requête pour 
@@ -210,7 +210,7 @@ explainVersion: '1',
      parsedQuery: 
       { '$and': 
          [ { 'adresse.numero': { '$eq': 12 } },
-           { 'adresse.rue': { '$eq': 'Allée de la Chapelle Saint-Pierre' } },
+           { 'adresse.rue': { '$eq': 'Allée de la Chapelle Sanumber-Pierre' } },
            { 'adresse.ville': { '$eq': 'Nice' } } ] },
      maxIndexedOrSolutionsReached: false,
      maxIndexedAndSolutionsReached: false,
@@ -219,7 +219,7 @@ explainVersion: '1',
       { stage: 'FETCH',
         filter: 
          { '$and': 
-            [ { 'adresse.rue': { '$eq': 'Allée de la Chapelle Saint-Pierre' } },
+            [ { 'adresse.rue': { '$eq': 'Allée de la Chapelle Sanumber-Pierre' } },
               { 'adresse.ville': { '$eq': 'Nice' } } ] },
         inputStage: 
          { stage: 'IXSCAN',
@@ -250,12 +250,12 @@ explainVersion: '1',
              isPartial: false,
              indexVersion: 2,
              direction: 'forward',
-             indexBounds: { 'adresse.rue': [ '["Allée de la Chapelle Saint-Pierre", "Allée de la Chapelle Saint-Pierre"]' ] } } },
+             indexBounds: { 'adresse.rue': [ '["Allée de la Chapelle Sanumber-Pierre", "Allée de la Chapelle Sanumber-Pierre"]' ] } } },
         { stage: 'FETCH',
           filter: 
            { '$and': 
               [ { 'adresse.numero': { '$eq': 12 } },
-                { 'adresse.rue': { '$eq': 'Allée de la Chapelle Saint-Pierre' } } ] },
+                { 'adresse.rue': { '$eq': 'Allée de la Chapelle Sanumber-Pierre' } } ] },
           inputStage: 
            { stage: 'IXSCAN',
              keyPattern: { 'adresse.ville': 1 },
@@ -272,7 +272,7 @@ explainVersion: '1',
           filter: 
            { '$and': 
               [ { 'adresse.numero': { '$eq': 12 } },
-                { 'adresse.rue': { '$eq': 'Allée de la Chapelle Saint-Pierre' } },
+                { 'adresse.rue': { '$eq': 'Allée de la Chapelle Sanumber-Pierre' } },
                 { 'adresse.ville': { '$eq': 'Nice' } } ] },
           inputStage: 
            { stage: 'AND_SORTED',
@@ -298,13 +298,13 @@ explainVersion: '1',
                   isPartial: false,
                   indexVersion: 2,
                   direction: 'forward',
-                  indexBounds: { 'adresse.rue': [ '["Allée de la Chapelle Saint-Pierre", "Allée de la Chapelle Saint-Pierre"]' ] } } ] } },
+                  indexBounds: { 'adresse.rue': [ '["Allée de la Chapelle Sanumber-Pierre", "Allée de la Chapelle Sanumber-Pierre"]' ] } } ] } },
         { stage: 'FETCH',
           filter: 
            { '$and': 
               [ { 'adresse.numero': { '$eq': 12 } },
                 { 'adresse.ville': { '$eq': 'Nice' } },
-                { 'adresse.rue': { '$eq': 'Allée de la Chapelle Saint-Pierre' } } ] },
+                { 'adresse.rue': { '$eq': 'Allée de la Chapelle Sanumber-Pierre' } } ] },
           inputStage: 
            { stage: 'AND_SORTED',
              inputStages: 
@@ -333,7 +333,7 @@ explainVersion: '1',
         { stage: 'FETCH',
           filter: 
            { '$and': 
-              [ { 'adresse.rue': { '$eq': 'Allée de la Chapelle Saint-Pierre' } },
+              [ { 'adresse.rue': { '$eq': 'Allée de la Chapelle Sanumber-Pierre' } },
                 { 'adresse.ville': { '$eq': 'Nice' } },
                 { 'adresse.numero': { '$eq': 12 } } ] },
           inputStage: 
@@ -349,7 +349,7 @@ explainVersion: '1',
                   isPartial: false,
                   indexVersion: 2,
                   direction: 'forward',
-                  indexBounds: { 'adresse.rue': [ '["Allée de la Chapelle Saint-Pierre", "Allée de la Chapelle Saint-Pierre"]' ] } },
+                  indexBounds: { 'adresse.rue': [ '["Allée de la Chapelle Sanumber-Pierre", "Allée de la Chapelle Sanumber-Pierre"]' ] } },
                 { stage: 'IXSCAN',
                   keyPattern: { 'adresse.ville': 1 },
                   indexName: 'adresse.ville_1',
@@ -365,7 +365,7 @@ explainVersion: '1',
    { find: 'clients',
      filter: 
       { 'adresse.ville': 'Nice',
-        'adresse.rue': 'Allée de la Chapelle Saint-Pierre',
+        'adresse.rue': 'Allée de la Chapelle Sanumber-Pierre',
         'adresse.numero': 12 },
      '$db': 'test' },
   serverInfo: 
@@ -374,14 +374,14 @@ explainVersion: '1',
      version: '5.0.7',
      gitVersion: 'b977129dc70eed766cbee7e412d901ee213acbda' },
   serverParameters: 
-   { internalQueryFacetBufferSizeBytes: 104857600,
-     internalQueryFacetMaxOutputDocSizeBytes: 104857600,
-     internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
-     internalDocumentSourceGroupMaxMemoryBytes: 104857600,
-     internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
-     internalQueryProhibitBlockingMergeOnMongoS: 0,
-     internalQueryMaxAddToSetBytes: 104857600,
-     internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600 },
+   { numberernalQueryFacetBufferSizeBytes: 104857600,
+     numberernalQueryFacetMaxOutputDocSizeBytes: 104857600,
+     numberernalLookupStagenumberermediateDocumentMaxSizeBytes: 104857600,
+     numberernalDocumentSourceGroupMaxMemoryBytes: 104857600,
+     numberernalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+     numberernalQueryProhibitBlockingMergeOnMongoS: 0,
+     numberernalQueryMaxAddToSetBytes: 104857600,
+     numberernalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600 },
   ok: 1 }
 
 1.6.7a Afficher les clients dont les noms commencent par une 
@@ -496,7 +496,7 @@ L'objectif est de pouvoir :
 - imposer des champs
 - imposer des types à des champs
 - imposer des valeurs à des champs
-- Interdire l'ajout de nouveaux champs.
+- numbererdire l'ajout de nouveaux champs.
 
 
 1.7.1 Construction progressive d'un valideur sur la collection client0
@@ -507,12 +507,15 @@ db.createCollection("clients0", {
       $jsonSchema: {
          bsonType: "object",
 		 additionalProperties: false,
-         required: [ "nom","_id"],
+         required: [ "nom"],
          properties: {
             nom: {
                bsonType: "string",
                description: "must be a string and is required"
-            }
+            },
+	    _id: { 
+		bsonType: "number" 
+	    }
 		}
 		}
 	}
@@ -529,9 +532,9 @@ document failed validation, car le field _id n'est pas déclaré dans les props 
 db.clients0.insertOne({_id:2,"nom":"Zembla", prenom:"Lefort"});
 document failed validation, car le field _id et prenom ne sont pas déclarés dans les props et additionalsProperties est false.
 
-1.7.1.2 Interdire l'ajout d'autres champs y compris prenoms et vérifier
+1.7.1.2 numbererdire l'ajout d'autres champs y compris prenoms et vérifier
 -- Supprimer et récréer la collection avec validateur
--- Interdire l'ajout d'autres champs y compris prenoms
+-- numbererdire l'ajout d'autres champs y compris prenoms
 -- quelle est la bonne syntaxe ?
 db.clients0.drop();
 db.createCollection("clients0", {
@@ -539,13 +542,13 @@ db.createCollection("clients0", {
       $jsonSchema: {
          bsonType: "object",
 		 additionalProperties: false,
-         required: [ "nom"],
+         required: ["nom"],
          properties: {
             nom: {
                bsonType: "string",
                description: "must be a string and is required"
             },
-          _id: { bsonType: "int" }
+          _id: { bsonType: "number" }
 		}
 		}
 	}
@@ -580,7 +583,7 @@ db.createCollection("clients0", {
                description: "must be a string and is required",
 	       enum:["Pierre","Adam","Mohamed","Akim","Joel"]
             }, 
-          _id: { bsonType: "int" }
+          _id: { bsonType: "number" }
 		}
 		}
 	}
@@ -616,7 +619,7 @@ db.createCollection("clients0", {
                bsonType: "date",
                description: "must be a ISO type"
             },
-          _id: { bsonType: "int" }
+          _id: { bsonType: "number" }
 		}
 		}
 	}
@@ -672,7 +675,7 @@ db.createCollection("clients0", {
                maximum: 10000000,
                description: "chiffreDaffaire must be between 0 and 10000000"
             },
-          _id: { bsonType: "int" }
+          _id: { bsonType: "number" }
 		}
 		}
 	}
@@ -715,7 +718,7 @@ db.createCollection("clients0", {
    validator: {
       $jsonSchema: {
          bsonType: "object",
-		 additionalProperties: false,
+         additionalProperties: false,
          required: [ "nom"],
          properties: {
             nom: {
@@ -737,11 +740,37 @@ db.createCollection("clients0", {
                maximum: 10000000,
                description: "chiffreDaffaire must be between 0 and 10000000"
             },
-	    adresse
-          _id: { bsonType: "int" }
-		}
-		}
+	    adresse: {
+              bsonType: "object",
+	      properties: {
+	    	numero: {
+	       	   bsonType: "number",
+                   description: "must be an numbereger"
+                },
+ 	        rue: {
+	           bsonType: "string",
+	           description: "must be a string"
+                },
+ 	        "ville": {
+ 	           bsonType: "string",
+                   description: "must be a string"
+            	},
+            	codePostal: {
+               	   bsonType: "string",
+	           description: "must be a string"
+            	},
+               pays: {
+                  bsonType: "string",
+                  description: "must be a string"
+                }
+             }
+           },
+          _id: { 
+             bsonType: "number" 
+           }
 	}
+      }
+    }
 }
 );
 -- vous pouvez mettre les commandes dans un fichier
@@ -785,16 +814,72 @@ db.clients0.insertOne(
 	}
 );
 
-1.7.1.7 Interdire l'ajout de champs dans structure : adresse et confirmer continent
+1.7.1.7 numbererdire l'ajout de champs dans structure : adresse et confirmer continent
+
 
 db.clients0.drop();
 db.createCollection("clients0", {
    validator: {
       $jsonSchema: {
          bsonType: "object",
-		 ?
-	   }
+         additionalProperties: false,
+         required: [ "nom"],
+         properties: {
+            nom: {
+               bsonType: "string",
+               description: "must be a string and is required"
+            },
+	    prenom: {
+               bsonType: "string",
+               description: "must be a string",
+	       enum:["Pierre","Adam","Mohamed","Akim","Joel"]
+            }, 
+	    dateNaiss: {
+               bsonType: "date",
+               description: "must be a ISO type"
+            },
+            chiffreDaffaire: {
+               bsonType: "number",
+	       minimum: 0,
+               maximum: 10000000,
+               description: "chiffreDaffaire must be between 0 and 10000000"
+            },
+	    adresse: {
+              bsonType: "object",
+              additionalProperties: false,
+	      properties: {
+	    	numero: {
+	       	   bsonType: "number",
+                   description: "must be an numbereger"
+                },
+ 	        rue: {
+	           bsonType: "string",
+	           description: "must be a string"
+                },
+ 	        "ville": {
+ 	           bsonType: "string",
+                   description: "must be a string"
+            	},
+            	codePostal: {
+               	   bsonType: "string",
+	           description: "must be a string"
+            	},
+                pays: {
+                  bsonType: "string",
+                  description: "must be a string"
+                },
+	        continent: {
+                  bsonType: "string",
+                  description: "must be a string"
+               }
+             }
+           },
+          _id: { 
+             bsonType: "number" 
+           }
 	}
+      }
+    }
 }
 );
 -- Insertion correction ?
@@ -818,6 +903,9 @@ db.clients0.insertOne(
 	}
 );
 
+{ acknowledged: true, insertedId: 1 }
+
+
 -- Insertion avec violation de la limitation du nombre de champ dans :adresse
 
 db.clients0.insertOne(
@@ -839,6 +927,8 @@ db.clients0.insertOne(
 	}
 );
 
+MongoServerError: Document failed validation
+
 1.7.1.7 Ajouter un champ autresPrenoms de type Array.
 
 db.clients0.drop();
@@ -846,9 +936,72 @@ db.createCollection("clients0", {
    validator: {
       $jsonSchema: {
          bsonType: "object",
-		 ?
-	   }
+         additionalProperties: false,
+         required: [ "nom"],
+         properties: {
+            nom: {
+               bsonType: "string",
+               description: "must be a string and is required"
+            },
+	    prenom: {
+               bsonType: "string",
+               description: "must be a string",
+	       enum:["Pierre","Adam","Mohamed","Akim","Joel"]
+            }, 
+	    dateNaiss: {
+               bsonType: "date",
+               description: "must be a ISO type"
+            },
+            chiffreDaffaire: {
+               bsonType: "number",
+	       minimum: 0,
+               maximum: 10000000,
+               description: "chiffreDaffaire must be between 0 and 10000000"
+            },
+	    adresse: {
+              bsonType: "object",
+              additionalProperties: false,
+	      properties: {
+	    	numero: {
+	       	   bsonType: "number",
+                   description: "must be an numbereger"
+                },
+ 	        rue: {
+	           bsonType: "string",
+	           description: "must be a string"
+                },
+ 	        "ville": {
+ 	           bsonType: "string",
+                   description: "must be a string"
+            	},
+            	codePostal: {
+               	   bsonType: "string",
+	           description: "must be a string"
+            	},
+                pays: {
+                  bsonType: "string",
+                  description: "must be a string"
+                },
+	       continent: {
+                  bsonType: "string",
+                  description: "must be a string"
+               }
+             }
+           },
+          _id: { 
+             bsonType: "number" 
+          },
+	  autresPrenoms: {
+	    bsonType: "array",
+	    description: "must be an array of strings",
+            items: {
+              bsonType: "string"
+	    },
+	    minItems: 1,
+	  }
 	}
+      }
+    }
 }
 );
 -- Ajout d'un document avec le champs autresPrenoms correcte
@@ -871,7 +1024,7 @@ db.clients0.insertOne(
 	}
 );
 
--- Insertion avec violation des contraintes sur l'array autresPrenoms
+-- Insertion avec violation des contranumberes sur l'array autresPrenoms
 
 db.clients0.insertOne(
 	{
@@ -894,7 +1047,7 @@ db.clients0.insertOne(
 
 
 1.7.2 Construire un validateur pour les documents de la collection vols0 
-Les contraintes :
+Les contranumberes :
 	- Tous les champs sont obligatoires 
 	- _id doit être un entier
 	- Les string doivent être de type string
@@ -913,6 +1066,160 @@ Les contraintes :
 		EXCELLENT, TRES_BIEN, BIEN, MOYEN, MEDIOCRE, PASSABLE
 		Nota : Il est impossible d'ajouter de nouvelles notes.
 	- Effectuer les tests au fur et à mesure
+
+
+db.vols0.drop();
+db.createCollection("vols0", {
+"validator": {
+      "$jsonSchema": {
+         "bsonType": "object",
+		 "additionalProperties": false,
+         "required": [ "_id", "villeDepart", "villeArrivee", "heureDepart", "heureArrivee", "dateVol", "appreciations"],
+         "properties": {
+            "_id": {
+               "bsonType": "number",
+               "description": "must be an numbereger and is required"
+            },
+			"villeDepart": {
+               "bsonType": "string",
+               "description": "must be a string and is required",
+            }, 
+			"villeArrivee": {
+               "bsonType": "string",
+               "description": "must be a string and is required"
+            },
+            "heureDepart": {
+               "bsonType": "string",
+			   "description": "must be a string and is required"
+            },
+			"heureArrivee": {
+               "bsonType": "string",
+			   "description": "must be a string and is required"
+            },
+			"dateVol": {
+               "bsonType": "date",
+			   "description": "must be ISO type and is required"
+            },
+			"appreciations": {
+				"bsonType": "array",
+				"items": {
+					 "bsonType": "object",
+					 "properties": {
+						"idClient": {
+							"bsonType": "number",
+							"description": "must be an numbereger"
+						},
+						"notes": {
+							"bsonType": "array",
+							"description": "must be an array",
+							"items": {
+								"bsonType": "object",
+								"properties": {
+									"apid": {
+										"enum":["073"],
+										"description": "must be 073"
+									},
+									"critereANoter": {
+										"enum": ["SiteWeb","Prix", "Nourritureàbord", "Qualitésiège", "Accueilguichet"],
+										"description": "must be SiteWeb, Prix, Nourritureàbord, Qualitésiège or Accueilguichet"
+									},
+									"note": {
+										"enum": ["EXCELLENT", "TRES_BIEN", "BIEN", "MOYEN", "MEDIOCRE", "PASSABLE"],
+										"description": "EXCELLENT, TRES_BIEN, BIEN, MOYEN, MEDIOCRE or PASSABLE"
+									}	
+								}
+							},
+						}
+					}
+				},
+			}
+		}
 	
+	}
+}
 
+}
+);	
 
+db.vols0.insertOne(
+	{
+      "_id":100,
+      "villeDepart":"Nice",
+      "villeArrivee":"Paris",
+      "heureDepart":"10:15",
+      "heureArrivee":"11:45",
+      "dateVol": new Date("2018-11-18"),
+      "appreciations":[
+         {
+            "idClient":1,
+            "notes":[
+               {
+                  "apid":11,
+                  "critereANoter":"SiteWeb",
+                  "note":"BIEN"
+               },
+               {
+                  "apid":12,
+                  "critereANoter":"Prix",
+                  "note":"BIEN"
+               },
+               {
+                  "apid":13,
+                  "critereANoter":"Nourritureàbord",
+                  "note":"BIEN"
+               },
+               {
+                  "apid":14,
+                  "critereANoter":"Qualitésiège",
+                  "note":"MOYEN"
+               },
+               {
+                  "apid":15,
+                  "critereANoter":"Accueilguichet",
+                  "note":"TRES_BIEN"
+               },
+               {
+                  "apid":16,
+                  "critereANoter":"Accueilàbord",
+                  "note":"EXCELLENT"
+               }
+            ]
+         },
+         {
+            "idClient":2,
+            "notes":[
+               {
+                  "apid":21,
+                  "critereANoter":"SiteWeb",
+                  "note":"TRES_BIEN"
+               },
+               {
+                  "apid":22,
+                  "critereANoter":"Prix",
+                  "note":"MEDIOCRE"
+               },
+               {
+                  "apid":23,
+                  "critereANoter":"Nourritureàbord",
+                  "note":"BIEN"
+               },
+               {
+                  "apid":24,
+                  "critereANoter":"Qualitésiège",
+                  "note":"MOYEN"
+               },
+               {
+                  "apid":25,
+                  "critereANoter":"Accueilguichet",
+                  "note":"TRES_BIEN"
+               },
+               {
+                  "apid":26,
+                  "critereANoter":"Accueilàbord",
+                  "note":"BIEN"
+               }
+            ]
+         }
+      ]
+   }
+);
